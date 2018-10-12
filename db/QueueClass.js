@@ -43,7 +43,7 @@ class Queue {
     if(this.first === null) {
       return null;
     } 
-    return this.first.data; 
+    return this.first.value; 
   }  
 }
 

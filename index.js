@@ -8,8 +8,11 @@ const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
-const cats = require('./db/cats.json');
-const dogs = require('./db/dogs.json');
+// const cats = require('./db/cats.json');
+// const dogs = require('./db/dogs.json');
+
+const catQueue = require('./db/catQueue');
+const dogQueue = require('./db/dogQueue');
 
 const app = express();
 
@@ -26,20 +29,28 @@ app.use(
 );
 
 app.get('/api/cat', (req, res, next) => {
-  res.send(cats[0]);
-  
+  const firstCat = catQueue.peek();
+  console.log(firstCat);
+  res.send(firstCat);
 });
 
 app.delete('/api/cat', (req, res, next) => {
-  res.send(cats.shift());
+  catQueue.dequeue();
+  res.status(204).end();
+  console.log(catQueue.peek());
+  // res.send(cats.shift());
 });
 
 app.get('/api/dog', (req, res, next) => {
-  res.send(dogs[0]); 
+  const firstDog = dogQueue.peek();
+  console.log(firstDog);
+  res.send(firstDog); 
 });
 
 app.delete('/api/dog', (req, res, next) => {
-  res.send(dogs.shift());
+  dogQueue.dequeue();
+  res.status(204).end();
+  // res.send(dogs.shift());
 });
 
 function runServer(port = PORT) {
