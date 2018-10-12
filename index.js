@@ -8,8 +8,8 @@ const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
-const cats = require('./cats.json');
-const dogs = require('./dogs.json');
+const cats = require('./db/cats.json');
+const dogs = require('./db/dogs.json');
 
 const app = express();
 
@@ -30,9 +30,16 @@ app.get('/api/cat', (req, res, next) => {
   
 });
 
+app.delete('/api/cat', (req, res, next) => {
+  res.send(cats.shift());
+});
+
 app.get('/api/dog', (req, res, next) => {
   res.send(dogs[0]); 
+});
 
+app.delete('/api/dog', (req, res, next) => {
+  res.send(dogs.shift());
 });
 
 function runServer(port = PORT) {

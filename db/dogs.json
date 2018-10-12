@@ -1,0 +1,27 @@
+[{
+  "imageURL": "http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg", 
+  "imageDescription": "A smiling golden-brown golden retreiver listening to music.",
+  "name": "Zeus",
+  "sex": "Male",
+  "age": "3",
+  "breed": "Golden Retriever",
+  "story": "Owner Passed away"
+},
+{
+  "imageURL": "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&h=350", 
+  "imageDescription": "A dog.",
+  "name": "Poseidon",
+  "sex": "Male",
+  "age": "5",
+  "breed": "German Shepherd",
+  "story": "Owner Passed away"
+},
+{
+  "imageURL": "https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&h=350", 
+  "imageDescription": "Another dog",
+  "name": "Hephaestus",
+  "sex": "Male",
+  "age": "1",
+  "breed": "Poodle",
+  "story": "Owner Passed away"
+}]
